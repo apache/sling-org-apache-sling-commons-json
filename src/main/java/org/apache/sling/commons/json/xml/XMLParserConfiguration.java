@@ -16,6 +16,7 @@ import org.apache.sling.commons.json.util.ParserConfiguration;
  * 
  * @author AylwardJ
  */
+@Deprecated
 @SuppressWarnings({ "" })
 public class XMLParserConfiguration extends ParserConfiguration {
 

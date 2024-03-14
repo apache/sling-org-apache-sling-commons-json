@@ -21,6 +21,7 @@ import org.apache.sling.commons.json.JSONObject;
  * @author JSON.org
  * @version 2016-08-10
  */
+@Deprecated
 @SuppressWarnings("boxing")
 public class XML {
 

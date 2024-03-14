@@ -83,6 +83,7 @@ import org.apache.sling.commons.json.io.JSONWriter;
  * @author JSON.org
  * @version 2016-08-15
  */
+@Deprecated
 public class JSONObject {
     /**
      * JSONObject.NULL is equivalent to the value that JavaScript calls null,

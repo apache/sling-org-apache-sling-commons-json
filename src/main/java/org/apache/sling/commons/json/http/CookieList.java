@@ -14,6 +14,7 @@ Public Domain.
  * @author JSON.org
  * @version 2015-12-09
  */
+@Deprecated
 public class CookieList {
 
     /**

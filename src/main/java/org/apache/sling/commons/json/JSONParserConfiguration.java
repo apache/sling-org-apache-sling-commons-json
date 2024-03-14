@@ -5,6 +5,7 @@ import org.apache.sling.commons.json.util.ParserConfiguration;
 /**
  * Configuration object for the JSON parser. The configuration is immutable.
  */
+@Deprecated
 public class JSONParserConfiguration extends ParserConfiguration {
 
   /**

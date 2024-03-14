@@ -16,6 +16,7 @@ import org.apache.sling.commons.json.JSONTokener;
  * @author JSON.org
  * @version 2015-12-09
  */
+@Deprecated
 public class XMLTokener extends JSONTokener {
 
     /**

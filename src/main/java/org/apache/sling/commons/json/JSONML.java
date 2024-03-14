@@ -15,6 +15,7 @@ Public Domain.
  * @author JSON.org
  * @version 2016-01-30
  */
+@Deprecated
 public class JSONML {
 
     /**

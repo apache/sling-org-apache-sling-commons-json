@@ -45,6 +45,7 @@ Public Domain.
  * @author kumar529
  * @param <T> return type of convert method
  */
+@Deprecated
 public interface XMLXsiTypeConverter<T> {
 
     /**

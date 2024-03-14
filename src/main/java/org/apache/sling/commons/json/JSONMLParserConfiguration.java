@@ -10,6 +10,7 @@ import org.apache.sling.commons.json.util.ParserConfiguration;
  * immutable.
  */
 @SuppressWarnings({ "" })
+@Deprecated
 public class JSONMLParserConfiguration extends ParserConfiguration {
 
     /**

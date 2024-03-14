@@ -20,6 +20,7 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RUNTIME)
 @Target({ METHOD })
+@Deprecated
 public @interface JSONPropertyName {
     /**
      * The value of the JSON property.

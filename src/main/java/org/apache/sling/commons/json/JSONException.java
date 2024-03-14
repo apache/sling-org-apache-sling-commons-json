@@ -10,6 +10,7 @@ Public Domain.
  * @author JSON.org
  * @version 2015-12-09
  */
+@Deprecated
 public class JSONException extends RuntimeException {
     /** Serialization ID */
     private static final long serialVersionUID = 0;

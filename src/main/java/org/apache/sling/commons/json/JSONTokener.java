@@ -15,6 +15,7 @@ Public Domain.
  * @author JSON.org
  * @version 2014-05-03
  */
+@Deprecated
 public class JSONTokener {
     /** current read character position on the current line. */
     private long character;

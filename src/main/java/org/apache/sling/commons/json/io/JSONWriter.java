@@ -53,6 +53,7 @@ Public Domain.
  * @author JSON.org
  * @version 2016-08-08
  */
+@Deprecated
 public class JSONWriter {
     private static final int maxdepth = 200;
 

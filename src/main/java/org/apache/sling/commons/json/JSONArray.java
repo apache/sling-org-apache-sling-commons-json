@@ -60,6 +60,7 @@ import java.util.Map;
  * @author JSON.org
  * @version 2016-08/15
  */
+@Deprecated
 public class JSONArray implements Iterable<Object> {
 
     /**

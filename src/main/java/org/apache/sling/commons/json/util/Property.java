@@ -16,6 +16,7 @@ import org.apache.sling.commons.json.JSONObject;
  * @author JSON.org
  * @version 2015-05-05
  */
+@Deprecated
 public class Property {
 
     /**

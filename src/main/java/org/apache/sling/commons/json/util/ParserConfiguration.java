@@ -6,6 +6,7 @@ Public Domain.
 /**
  * Configuration base object for parsers. The configuration is immutable.
  */
+@Deprecated
 @SuppressWarnings({ "" })
 public class ParserConfiguration {
     /**
