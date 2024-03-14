@@ -9,13 +9,14 @@
 	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
 	OF ANY KIND, either express or implied. See the License for the specific 
 	language governing permissions and limitations under the License. -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.apache.sling</groupId>
 		<artifactId>sling</artifactId>
-		<version>30</version>
+		<version>35</version>
 		<relativePath />
 	</parent>
 
@@ -27,10 +28,15 @@
 	<description>Apache Sling JSON Library</description>
 
 	<scm>
-		<connection>scm:svn:http://svn.apache.org/repos/asf/sling/trunk/bundles/commons/json</connection>
-		<developerConnection>scm:svn:https://svn.apache.org/repos/asf/sling/trunk/bundles/commons/json</developerConnection>
-		<url>http://svn.apache.org/viewvc/sling/trunk/bundles/commons/json</url>
+		<connection>scm:git:https://github.com/apache/sling-org-apache-sling-commons-json</connection>
+		<developerConnection>scm:git:https://github.com/apache/sling-org-apache-sling-commons-json</developerConnection>
+		<url>https://github.com/apache/sling-org-apache-sling-commons-json</url>
 	</scm>
+
+	<properties>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+	</properties>
 
 	<build>
 		<plugins>
@@ -40,36 +46,90 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<DynamicImport-Package>
-							javax.jcr;version="[2.0,3)",
-							javax.jcr.nodetype;version="[2.0,3)",
-							org.apache.sling.api.request;version="[2.0,3)",
-							org.apache.sling.api.resource;version="[2.0,3)"
+						<DynamicImport-Package> javax.jcr;version="[2.0,3)", javax.jcr.nodetype;version="[2.0,3)", org.apache.sling.api.request;version="[2.0,3)", org.apache.sling.api.resource;version="[2.0,3)"
 						</DynamicImport-Package>
 					</instructions>
 				</configuration>
 			</plugin>
 			<plugin>
-			    <groupId>org.apache.rat</groupId>
-			    <artifactId>apache-rat-plugin</artifactId>
-			    <configuration>
-			        <excludes>
-                        <exclude>src/main/java/org/apache/sling/commons/json/JSONArray.java</exclude>
-                        <exclude>src/main/java/org/apache/sling/commons/json/JSONException.java</exclude>
-                        <exclude>src/main/java/org/apache/sling/commons/json/JSONObject.java</exclude>
-                        <exclude>src/main/java/org/apache/sling/commons/json/JSONString.java</exclude>
-                        <exclude>src/main/java/org/apache/sling/commons/json/JSONTokener.java</exclude>
-			            <exclude>src/main/java/org/apache/sling/commons/json/http/Cookie.java</exclude>
-                        <exclude>src/main/java/org/apache/sling/commons/json/http/CookieList.java</exclude>
-                        <exclude>src/main/java/org/apache/sling/commons/json/http/HTTP.java</exclude>
-                        <exclude>src/main/java/org/apache/sling/commons/json/http/HTTPTokener.java</exclude>
-                        <exclude>src/main/java/org/apache/sling/commons/json/io/JSONStringer.java</exclude>
-                        <exclude>src/main/java/org/apache/sling/commons/json/io/JSONWriter.java</exclude>
-                        <exclude>src/main/java/org/apache/sling/commons/json/util/CDL.java</exclude>
-                        <exclude>src/main/java/org/apache/sling/commons/json/xml/XML.java</exclude>
-                        <exclude>src/main/java/org/apache/sling/commons/json/xml/XMLTokener.java</exclude>
-			        </excludes>
-			    </configuration>
+				<groupId>org.apache.rat</groupId>
+				<artifactId>apache-rat-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<!-- below classes are copies of https://github.com/stleary/JSON-java/releases/tag/20240303, moved to different packages and adjusted imports-->
+						<exclude>src/main/java/org/apache/sling/commons/json/JSONArray.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/JSONException.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/JSONML.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/JSONMLParserConfiguration.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/JSONObject.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/JSONParserConfiguration.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/JSONPointer.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/JSONPointerException.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/JSONPropertyIgnore.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/JSONPropertyName.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/JSONString.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/JSONTokener.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/http/Cookie.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/http/CookieList.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/http/HTTP.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/http/HTTPTokener.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/io/JSONRenderer.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/io/JSONStringer.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/io/JSONWriter.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/util/CDL.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/util/ParserConfiguration.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/util/Property.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/util/Validator.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/xml/XML.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/xml/XMLParserConfiguration.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/xml/XMLTokener.java</exclude>
+						<exclude>src/main/java/org/apache/sling/commons/json/xml/XMLXsiTypeConverter.java</exclude>
+						<exclude>src/test/resources/Issue593.xml</exclude>
+						<exclude>src/test/resources/Issue537.xml</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/JSONTokenerTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/JSONObjectLocaleTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/JSONMLTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/util/Util.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/util/CDLTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/util/PropertyTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/JSONObjectNumberTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/JSONObjectTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/io/JSONStringerTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/JSONArrayTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/xml/XMLTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/xml/XMLConfigurationTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/http/EnumTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/http/CookieTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/http/CookieListTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/http/HTTPTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/JSONStringTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/Fraction.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/WeirdList.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/ExceptionalBean.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/GenericBeanInt.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyPublicClass.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyBeanCustomName.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyEnumField.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/Singleton.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyNumber.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/RecursiveBeanEquals.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/BrokenToString.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyBeanCustomNameInterface.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/GenericBean.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/StringsResourceBundle.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyBeanCustomNameSubClass.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyBigNumberBean.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyNumberContainer.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyBean.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/SingletonEnum.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyEnum.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/RecursiveBean.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyEnumClass.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyLocaleBean.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyJsonString.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/JSONPointerTest.java</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -79,14 +139,14 @@
 			<groupId>javax.jcr</groupId>
 			<artifactId>jcr</artifactId>
 			<version>2.0</version>
-            <optional>true</optional>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
 		<dependency>
-            <!-- A recent version is required to use Sling mocks in tests, if that's a problem we'll need to change them -->
+			<!-- A recent version is required to use Sling mocks in tests, if that's a problem we'll need to change them -->
 			<groupId>org.apache.sling</groupId>
 			<artifactId>org.apache.sling.api</artifactId>
 			<version>2.3.0</version>
@@ -98,36 +158,50 @@
 			<version>2.0.22</version>
 			<scope>test</scope>
 			<exclusions>
-			    <exclusion>
-			        <groupId>org.jmock</groupId>
-			        <artifactId>jmock-junit4</artifactId>
-			    </exclusion>
+				<exclusion>
+					<groupId>org.jmock</groupId>
+					<artifactId>jmock-junit4</artifactId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
+			<version>4.13.2</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
 		</dependency>
-       <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-            <version>1.9.5</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.sling</groupId>
-            <artifactId>org.apache.sling.testing.sling-mock</artifactId>
-            <version>1.6.2</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <scope>test</scope>
-        </dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>4.2.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.testing.sling-mock</artifactId>
+			<version>1.6.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.annotation.versioning</artifactId>
+			<version>1.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.jayway.jsonpath</groupId>
+			<artifactId>json-path</artifactId>
+			<version>2.9.0</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 </project>
