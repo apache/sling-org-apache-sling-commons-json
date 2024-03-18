@@ -85,11 +85,15 @@ public class JSONWriter {
 
     /**
      * The writer that will receive the output.
+     * For backwards compatbility, this writer was changed from Appendable to
+     * Writer.
      */
     protected Writer writer;
 
     /**
      * Make a fresh JSONWriter. It can be used to build one JSON text.
+     * For backwards compatbility, this parameter was changed from Appendable to
+     * Writer.
      */
     public JSONWriter(Writer w) {
         this.comma = false;
