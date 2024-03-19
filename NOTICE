@@ -1,0 +1,7 @@
+Apache Sling Commons JSON
+Copyright 2020 The Apache Software Foundation
+
+This product includes software developed at
+The Apache Software Foundation (http://www.apache.org/).
+
+The Initial Developer of the src/main/java/org/apache/sling/commons/json/http, src/main/java/org/apache/sling/commons/json/io, src/main/java/org/apache/sling/commons/json/util, src/main/java/org/apache/sling/commons/json/xml and src/main/java/org/apache/sling/commons/json, as well as the corresponding tests and resources in src/test is https://github.com/stleary/JSON-java (mainly Sean Leary) and released under the public domain licence.

@@ -1,27 +1,50 @@
 package org.apache.sling.commons.json;
 
+/*
+Public Domain.
+ */
+
 /**
- * The JSONException is thrown by the JSON.org classes then things are amiss.
+ * The JSONException is thrown by the JSON.org classes when things are amiss.
+ *
  * @author JSON.org
- * @version 2
+ * @version 2015-12-09
  */
 @Deprecated
-public class JSONException extends Exception {
-    private static final long serialVersionUID = 8262447656274268887L;
+public class JSONException extends RuntimeException {
+    /** Serialization ID */
+    private static final long serialVersionUID = 0;
 
     /**
      * Constructs a JSONException with an explanatory message.
-     * @param message Detail about the reason for the exception.
+     *
+     * @param message
+     *                Detail about the reason for the exception.
      */
-    public JSONException(String message) {
+    public JSONException(final String message) {
         super(message);
     }
 
-    public JSONException(Throwable t) {
-        super(t);
+    /**
+     * Constructs a JSONException with an explanatory message and cause.
+     * 
+     * @param message
+     *                Detail about the reason for the exception.
+     * @param cause
+     *                The cause.
+     */
+    public JSONException(final String message, final Throwable cause) {
+        super(message, cause);
     }
 
-    public JSONException(String message, Throwable t) {
-        super(message, t);
+    /**
+     * Constructs a new JSONException with the specified cause.
+     * 
+     * @param cause
+     *              The cause.
+     */
+    public JSONException(final Throwable cause) {
+        super(cause.getMessage(), cause);
     }
+
 }
