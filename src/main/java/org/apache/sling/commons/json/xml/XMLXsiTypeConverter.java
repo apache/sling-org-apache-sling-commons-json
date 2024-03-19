@@ -46,7 +46,7 @@ Public Domain.
  * @param <T> return type of convert method
  */
 @Deprecated
-public interface XMLXsiTypeConverter<T> {
+interface XMLXsiTypeConverter<T> {
 
     /**
      * Converts an XML xsi:type attribute value to the specified type {@code T}.

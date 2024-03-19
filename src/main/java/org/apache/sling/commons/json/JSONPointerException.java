@@ -12,7 +12,7 @@ Public Domain.
  * @version 2016-05-13
  */
 @Deprecated
-public class JSONPointerException extends JSONException {
+class JSONPointerException extends JSONException {
     private static final long serialVersionUID = 8872944667561856751L;
 
     /**
@@ -20,7 +20,7 @@ public class JSONPointerException extends JSONException {
      *
      * @param message The detail message describing the reason for the exception.
      */
-    public JSONPointerException(String message) {
+    JSONPointerException(String message) {
         super(message);
     }
 
@@ -31,7 +31,7 @@ public class JSONPointerException extends JSONException {
      * @param message The detail message describing the reason for the exception.
      * @param cause   The cause of the exception.
      */
-    public JSONPointerException(String message, Throwable cause) {
+    JSONPointerException(String message, Throwable cause) {
         super(message, cause);
     }
 

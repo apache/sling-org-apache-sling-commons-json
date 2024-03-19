@@ -32,7 +32,7 @@ Public Domain.
  * @version 2016-05-14
  */
 @Deprecated
-public class JSONPointer {
+class JSONPointer {
 
     // used for URL encoding and decoding
     private static final String ENCODING = "utf-8";
@@ -41,12 +41,12 @@ public class JSONPointer {
      * This class allows the user to build a JSONPointer in steps, using
      * exactly one segment in each step.
      */
-    public static class Builder {
+    static class Builder {
 
         /**
          * Constructs a new Builder object.
          */
-        public Builder() {
+        Builder() {
         }
 
         // Segments for the eventual JSONPointer string
@@ -59,7 +59,7 @@ public class JSONPointer {
          * 
          * @return a JSONPointer object
          */
-        public JSONPointer build() {
+        JSONPointer build() {
             return new JSONPointer(this.refTokens);
         }
 
@@ -79,7 +79,7 @@ public class JSONPointer {
          * @return {@code this}
          * @throws NullPointerException if {@code token} is null
          */
-        public Builder append(String token) {
+        Builder append(String token) {
             if (token == null) {
                 throw new NullPointerException("token cannot be null");
             }
@@ -95,7 +95,7 @@ public class JSONPointer {
          * @param arrayIndex the array index to be added to the token list
          * @return {@code this}
          */
-        public Builder append(int arrayIndex) {
+        Builder append(int arrayIndex) {
             this.refTokens.add(String.valueOf(arrayIndex));
             return this;
         }
@@ -119,7 +119,7 @@ public class JSONPointer {
      *         {@code JSONPointer} instance by chained
      *         {@link Builder#append(String)} calls.
      */
-    public static Builder builder() {
+    static Builder builder() {
         return new Builder();
     }
 
@@ -137,7 +137,7 @@ public class JSONPointer {
      * @throws IllegalArgumentException if {@code pointer} is not a valid JSON
      *                                  pointer
      */
-    public JSONPointer(final String pointer) {
+    JSONPointer(final String pointer) {
         if (pointer == null) {
             throw new NullPointerException("pointer cannot be null");
         }
@@ -193,7 +193,7 @@ public class JSONPointer {
      *                  Each token identifies a step in the path to the targeted
      *                  value.
      */
-    public JSONPointer(List<String> refTokens) {
+    JSONPointer(List<String> refTokens) {
         this.refTokens = new ArrayList<String>(refTokens);
     }
 
@@ -218,7 +218,7 @@ public class JSONPointer {
      * @return the result of the evaluation
      * @throws JSONPointerException if an error occurs during evaluation
      */
-    public Object queryFrom(Object document) throws JSONPointerException {
+    Object queryFrom(Object document) throws JSONPointerException {
         if (this.refTokens.isEmpty()) {
             return document;
         }
@@ -299,7 +299,7 @@ public class JSONPointer {
      * 
      * @return a uri fragment string
      */
-    public String toURIFragment() {
+    String toURIFragment() {
         try {
             StringBuilder rval = new StringBuilder("#");
             for (String token : this.refTokens) {
