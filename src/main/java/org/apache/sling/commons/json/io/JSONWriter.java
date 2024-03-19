@@ -10,6 +10,8 @@ import org.apache.sling.commons.json.JSONArray;
 import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.commons.json.JSONObject;
 import org.apache.sling.commons.json.JSONString;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /*
 Public Domain.
@@ -55,6 +57,9 @@ Public Domain.
  */
 @Deprecated
 public class JSONWriter {
+    private static final Logger log = LoggerFactory.getLogger(JSONWriter.class);
+    private static boolean tidyWarningLogged = false;
+
     private static final int maxdepth = 200;
 
     /**
@@ -432,6 +437,10 @@ public class JSONWriter {
     public void setTidy(boolean tidy) {
         // stubbed as this was removed from the library but still is referenced from
         // customer code
+        if (!tidyWarningLogged) {
+            log.warn("the method setTidy was removed for security reasons.");
+            tidyWarningLogged = true;
+        }
     }
 
     /**
@@ -441,6 +450,10 @@ public class JSONWriter {
     public boolean isTidy() {
         // stubbed as this was removed from the library but still is referenced from
         // customer code
+        if (!tidyWarningLogged) {
+            log.warn("the method isTidy was removed for security reasons.");
+            tidyWarningLogged = true;
+        }
         return true;
     }
 
