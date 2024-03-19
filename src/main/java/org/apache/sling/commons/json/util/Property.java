@@ -17,12 +17,12 @@ import org.apache.sling.commons.json.JSONObject;
  * @version 2015-05-05
  */
 @Deprecated
-public class Property {
+class Property {
 
     /**
      * Constructs a new Property object.
      */
-    public Property() {
+    Property() {
     }
 
     /**
@@ -33,7 +33,7 @@ public class Property {
      * @return JSONObject
      * @throws JSONException if a called function has an error
      */
-    public static JSONObject toJSONObject(java.util.Properties properties) throws JSONException {
+    static JSONObject toJSONObject(java.util.Properties properties) throws JSONException {
         // can't use the new constructor for Android support
         // JSONObject jo = new JSONObject(properties == null ? 0 : properties.size());
         JSONObject jo = new JSONObject();
@@ -54,7 +54,7 @@ public class Property {
      * @return java.util.Properties
      * @throws JSONException if a called function has an error
      */
-    public static Properties toProperties(JSONObject jo) throws JSONException {
+    static Properties toProperties(JSONObject jo) throws JSONException {
         Properties properties = new Properties();
         if (jo != null) {
             // Don't use the new entrySet API to maintain Android support

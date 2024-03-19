@@ -11,26 +11,26 @@ import org.apache.sling.commons.json.util.ParserConfiguration;
  */
 @SuppressWarnings({ "" })
 @Deprecated
-public class JSONMLParserConfiguration extends ParserConfiguration {
+class JSONMLParserConfiguration extends ParserConfiguration {
 
     /**
      * We can override the default maximum nesting depth if needed.
      */
-    public static final int DEFAULT_MAXIMUM_NESTING_DEPTH = ParserConfiguration.DEFAULT_MAXIMUM_NESTING_DEPTH;
+    static final int DEFAULT_MAXIMUM_NESTING_DEPTH = ParserConfiguration.DEFAULT_MAXIMUM_NESTING_DEPTH;
 
     /** Original Configuration of the XML to JSONML Parser. */
-    public static final JSONMLParserConfiguration ORIGINAL = new JSONMLParserConfiguration();
+    static final JSONMLParserConfiguration ORIGINAL = new JSONMLParserConfiguration();
     /**
      * Original configuration of the XML to JSONML Parser except that values are
      * kept as strings.
      */
-    public static final JSONMLParserConfiguration KEEP_STRINGS = new JSONMLParserConfiguration().withKeepStrings(true);
+    static final JSONMLParserConfiguration KEEP_STRINGS = new JSONMLParserConfiguration().withKeepStrings(true);
 
     /**
      * Default parser configuration. Does not keep strings (tries to implicitly
      * convert values).
      */
-    public JSONMLParserConfiguration() {
+    JSONMLParserConfiguration() {
         super();
         this.maxNestingDepth = DEFAULT_MAXIMUM_NESTING_DEPTH;
     }
