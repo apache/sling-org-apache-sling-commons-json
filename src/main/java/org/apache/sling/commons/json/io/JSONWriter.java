@@ -60,6 +60,12 @@ public class JSONWriter {
     private static final Logger log = LoggerFactory.getLogger(JSONWriter.class);
     private static boolean tidyWarningLogged = false;
 
+    /**
+     * @deprecated for backwards compatibility, this field is set and returned
+     *             without being used actually
+     */
+    private boolean tidy;
+
     private static final int maxdepth = 200;
 
     /**
@@ -441,6 +447,7 @@ public class JSONWriter {
             log.warn("the method setTidy was removed for security reasons.");
             tidyWarningLogged = true;
         }
+        this.tidy = tidy;
     }
 
     /**
@@ -454,7 +461,7 @@ public class JSONWriter {
             log.warn("the method isTidy was removed for security reasons.");
             tidyWarningLogged = true;
         }
-        return true;
+        return tidy;
     }
 
     /**
