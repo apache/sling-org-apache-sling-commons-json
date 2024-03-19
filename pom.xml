@@ -25,6 +25,10 @@
 	<name>Apache Sling JSON Library</name>
 	<description>Apache Sling JSON Library</description>
 
+	<properties>
+		<sling.java.version>8</sling.java.version>
+	</properties>
+
 	<scm>
 		<connection>scm:git:https://github.com/apache/sling-org-apache-sling-commons-json</connection>
 		<developerConnection>scm:git:https://github.com/apache/sling-org-apache-sling-commons-json</developerConnection>
