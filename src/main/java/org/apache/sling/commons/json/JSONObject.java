@@ -915,7 +915,8 @@ public class JSONObject {
         if (object instanceof String) {
             return (String) object;
         }
-        throw wrongValueFormatException(key, "string", object, null);
+        // SLING-12269: changed behaviour to match the old style functionality
+        return get(key).toString();
     }
 
     /**

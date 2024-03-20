@@ -1170,14 +1170,9 @@ public class JSONObjectTest {
                                         "JSONObject[\"nonKey\"] not found.",
                                         e.getMessage());
                 }
-                try {
-                        jsonObject.getString("trueKey");
-                        fail("Expected an exception");
-                } catch (JSONException e) {
-                        assertEquals("Expecting an exception message",
-                                        "JSONObject[\"trueKey\"] is not a string (class java.lang.Boolean : true).",
-                                        e.getMessage());
-                }
+
+                assertEquals("true", jsonObject.getString("trueKey"));
+
                 try {
                         jsonObject.getDouble("nonKey");
                         fail("Expected an exception");

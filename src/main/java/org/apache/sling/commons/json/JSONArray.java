@@ -538,7 +538,8 @@ public class JSONArray implements Iterable<Object> {
         if (object instanceof String) {
             return (String) object;
         }
-        throw wrongValueFormatException(index, "String", object, null);
+        // SLING-12269: changed behaviour to match the old style functionality
+        return get(index).toString();
     }
 
     /**

@@ -444,13 +444,7 @@ public class JSONArrayTest {
             assertEquals("Expected an exception message",
                     "JSONArray[4] is not a long (class java.lang.String : hello).", e.getMessage());
         }
-        try {
-            jsonArray.getString(5);
-            assertTrue("expected getString to fail", false);
-        } catch (JSONException e) {
-            assertEquals("Expected an exception message",
-                    "JSONArray[5] is not a String (class java.math.BigDecimal : 0.002345).", e.getMessage());
-        }
+	assertEquals("0.002345", jsonArray.getString(5));
         Util.checkJSONArrayMaps(jsonArray);
     }
 
