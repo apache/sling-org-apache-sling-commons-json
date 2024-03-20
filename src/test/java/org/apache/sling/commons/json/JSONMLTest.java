@@ -133,14 +133,9 @@ public class JSONMLTest {
                 "]" +
                 "]";
         JSONArray jsonArray = new JSONArray(jsonArrayStr);
-        try {
-            JSONML.toString(jsonArray);
-            assertTrue("Expecting an exception", false);
-        } catch (JSONException e) {
-            assertEquals("Expecting an exception message",
-                    "JSONArray[0] is not a String (class org.apache.sling.commons.json.JSONArray).",
-                    e.getMessage());
-        }
+        assertEquals(
+                "<addresses xsi:noNamespaceSchemaLocation=\"test.xsd\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><[&quot;name&quot;]><nocontent/>&gt;</[&quot;name&quot;]></addresses>",
+                JSONML.toString(jsonArray));
     }
 
     /**

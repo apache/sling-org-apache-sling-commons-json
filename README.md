@@ -28,4 +28,5 @@ Manual changes applied to the library
   - JSONWriter: add missing methods isTidy/setTidy
   - make the following classes package-private, as those were not present in the initial version of this library: JSONML, JSONMLParserConfioguration, Property, JSONPointer, JSONPointerException, XMLParserConfiguration, XMLXsiTypeConverter, JSONParserConfiguration
   - check for newly added classes that add features to the json-java library, whereas we do not want to add them to the API of this library
+  - to restore the old behaviour in reading string, adapt the getString() methods in JSONObject and JSONArray. Instead of throwing an exception, return get(...).toString() instead.
 - build using mvn clean install, ensure that no more breaking changes are present with mvn bundle:baseline
