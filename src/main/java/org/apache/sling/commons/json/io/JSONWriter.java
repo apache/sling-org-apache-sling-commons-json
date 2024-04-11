@@ -232,10 +232,6 @@ public class JSONWriter {
         if (this.mode == 'k') {
             try {
                 JSONObject topObject = this.stack[this.top - 1];
-                // don't use the built in putOnce method to maintain Android support
-                if (topObject.has(string)) {
-                    throw new JSONException("Duplicate key \"" + string + "\"");
-                }
                 topObject.put(string, true);
                 if (this.comma) {
                     this.writer.append(',');
