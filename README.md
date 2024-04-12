@@ -30,5 +30,5 @@ Manual changes applied to the library
   - check for newly added classes that add features to the json-java library, whereas we do not want to add them to the API of this library
   - to restore the old behaviour:
     - in reading string, adapt the getString() methods in JSONObject and JSONArray. Instead of throwing an exception, return get(...).toString() instead.
-    - in JSONWriter.key(), remove the check that throws an exception for duplicated keys
+    - in JSONWriter.key(), remove the check that throws an exception for duplicated keys. This means you also must remove the check in JSONObject. The testclass JSONWriterTestBackwardsCompatibility must suceed. Remove  the test cases from JSONObjectTest.
 - build using mvn clean install, ensure that no more breaking changes are present with mvn bundle:baseline
