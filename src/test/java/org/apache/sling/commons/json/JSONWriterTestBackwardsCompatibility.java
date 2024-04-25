@@ -17,8 +17,11 @@
 package org.apache.sling.commons.json;
 
 import java.io.StringWriter;
+import java.util.Iterator;
+
 import org.apache.sling.commons.json.io.JSONWriter;
 import org.apache.sling.commons.json.util.DespacedRendering;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -44,4 +47,47 @@ public class JSONWriterTestBackwardsCompatibility {
                 "_key_:_value2_");
     }
 
+    /**
+     * tests https://issues.apache.org/jira/browse/SLING-12304
+     * needs JSONObject to use LinkedHashMap instead of HashMap
+     */
+    @Test
+    public void ensureObjectOrder1() throws Exception {
+        JSONObject o = new JSONObject();
+        o.put("Hallo", "World");
+        o.put("foo", "bar");
+        o.put("welcome", "home");
+        o.put("fix", "my-order");
+
+        StringBuilder b = new StringBuilder();
+        Iterator<String> keys = o.keys();
+        while (keys.hasNext()) {
+            String key = keys.next();
+            b.append(key).append("=").append(o.get(key)).append(";");
+        }
+
+        Assert.assertEquals("Hallo=World;foo=bar;welcome=home;fix=my-order;", b.toString());
+    }
+
+    /**
+     * tests https://issues.apache.org/jira/browse/SLING-12304
+     * needs JSONObject to use LinkedHashMap instead of HashMap
+     */
+    @Test
+    public void ensureObjectOrder2() throws Exception {
+        JSONObject o = new JSONObject();
+        o.put("fix", "my-order");
+        o.put("Hallo", "World");
+        o.put("foo", "bar");
+        o.put("welcome", "home");
+
+        StringBuilder b = new StringBuilder();
+        Iterator<String> keys = o.keys();
+        while (keys.hasNext()) {
+            String key = keys.next();
+            b.append(key).append("=").append(o.get(key)).append(";");
+        }
+
+        Assert.assertEquals("fix=my-order;Hallo=World;foo=bar;welcome=home;", b.toString());
+    }
 }
