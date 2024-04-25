@@ -47,6 +47,10 @@ public class JSONWriterTestBackwardsCompatibility {
                 "_key_:_value2_");
     }
 
+    /**
+     * tests https://issues.apache.org/jira/browse/SLING-12304
+     * needs JSONObject to use LinkedHashMap instead of HashMap
+     */
     @Test
     public void ensureObjectOrder1() throws Exception {
         JSONObject o = new JSONObject();
@@ -65,6 +69,10 @@ public class JSONWriterTestBackwardsCompatibility {
         Assert.assertEquals("Hallo=World;foo=bar;welcome=home;fix=my-order;", b.toString());
     }
 
+    /**
+     * tests https://issues.apache.org/jira/browse/SLING-12304
+     * needs JSONObject to use LinkedHashMap instead of HashMap
+     */
     @Test
     public void ensureObjectOrder2() throws Exception {
         JSONObject o = new JSONObject();

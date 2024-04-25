@@ -31,4 +31,5 @@ Manual changes applied to the library
   - to restore the old behaviour:
     - in reading string, adapt the getString() methods in JSONObject and JSONArray. Instead of throwing an exception, return get(...).toString() instead.
     - in JSONWriter.key(), remove the check that throws an exception for duplicated keys. This means you also must remove the check in JSONObject. The testclass JSONWriterTestBackwardsCompatibility must suceed. Remove  the test cases from JSONObjectTest.
+    - in JSONObject, replace all occurances of HashMap with LinkedHashMap, see https://issues.apache.org/jira/browse/SLING-12304
 - build using mvn clean install, ensure that no more breaking changes are present with mvn bundle:baseline
